@@ -1,0 +1,365 @@
+.bd-out {
+    height: 100%;
+    background: none;
+}
+
+aside {
+    /*position: absolute;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* vh单位 --> 100代表100% */
+    background: #188EEE url("http://coding.imweb.io/img/project/resume/bg.png") 100% 100%;
+}
+
+/*自我介绍的外框*/
+.aside {
+    width: 300px;
+    height: 416px;
+    /********************************************/
+    /*  transform居中  缺点-->无法做响应式 */
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    /********************************************/
+}
+
+/*大头像*/
+.aside .aside-hd-portrait {
+    width: 116px;
+    height: 116px;
+    background: white url("http://coding.imweb.io/img/project/resume/avatar.png") center center/100% 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: #5DB0F3 0 0 0 5px;
+}
+
+@keyframes hd-spread {
+    100% {
+        box-shadow: rgba(93, 176, 243, 0.7) 0 0 0 10px;
+    }
+}
+
+.aside .aside-hd-portrait:hover {
+    animation: hd-spread 0.8s ease infinite;
+}
+
+/*用户名*/
+.aside .aside-hd-username {
+    margin-top: 15px;
+    height: 20px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    letter-spacing: 4px;
+}
+
+/*爱好*/
+.aside .aside-bd-top {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aside .aside-bd-top li {
+    display: inline-block;
+}
+
+/*联系方式*/
+.aside .aside-bd-btm {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.aside .aside-bd-btm li {
+    margin-top: 10px;
+}
+
+.aside .aside-bd-btm li span { /* 小图标 */
+    margin-right: 10px;
+}
+
+/*蓝色背景底部四个分栏*/
+.aside .aside-ft {
+    width: 288px;
+    height: 80px;
+    border: 1px solid #0E6AB8;
+    box-shadow: #2B9EFF 0 0 0 1px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.aside .aside-ft p {
+    display: inline-block;
+    flex-basis: 140px;
+}
+
+/*共有的字体内容*/
+.aside .aside-ft p, .aside .aside-bd-btm, .aside .aside-bd-top li {
+    font-size: 11px;
+    color: white;
+}
+
+/**********************************************************************************************************/
+/*主内容大外框*/
+main {
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+}
+
+/*工作经历外框*/
+.main-work, .main-skill {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* 大标题——工作经历& */
+.main-work-tt-out, .main-skill-tt-out {
+    position: relative; /* 父元素定义relative,好确定两个横线的位置 */
+    text-align: center;
+    width: 100%;
+}
+
+.main-work .main-work-tt-out .main-work-tt,
+.main-skill, .main-skill-tt-out .main-skill-tt { /*title*/
+    font-size: 20px;
+    line-height: 20px;
+    color: #188EEE;
+}
+
+.main-work .main-work-tt-out .main-work-tt::after,
+.main-work .main-work-tt-out .main-work-tt::before,
+.main-skill .main-skill-tt-out .main-skill-tt::after,
+.main-skill .main-skill-tt-out .main-skill-tt::before { /*伪元素实现文字压线*/
+    background: #CCCCCC;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 35%;
+}
+
+.main-work .main-work-tt-out .main-work-tt::after,
+.main-skill .main-skill-tt-out .main-skill-tt::after {
+    right: 0;
+}
+
+.main-work .main-work-tt-out .main-work-tt::before,
+.main-skill .main-skill-tt-out .main-skill-tt::before {
+    left: 0;
+}
+
+/*工作经验外壳*/
+.main-work .main-experience {
+    margin-top: 20px;
+}
+
+/*工作经验li整体*/
+.main-work .main-experience .main-experience-content {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 80%;
+    position: relative;
+    text-align: left;
+}
+
+/*工作经验li左侧时间轴线*/
+.main-work .main-experience .main-experience-content:not(:last-child)::before,
+.main-work .main-experience .main-experience-content:nth-last-child(1)::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 1px;
+    height: auto;
+}
+
+/*工作经验li左侧时间轴线非最后一个*/
+.main-work .main-experience .main-experience-content:not(:last-child)::before {
+    border-left: 1px solid rgba(204, 204, 204, 1);
+    bottom: -25px;
+}
+
+/*工作经验li左侧时间轴线  最后一个渐变*/
+.main-work .main-experience .main-experience-content:nth-last-child(1)::before {
+    bottom: -5px;
+    background: linear-gradient(to bottom, rgba(204, 204, 204, 1), rgba(204, 204, 204, 0)) no-repeat left /1px 100%;
+}
+
+/*圆点*/
+.main-work .main-experience .main-experience-content div {
+    width: 10px;
+    height: 10px;
+    background-color: #188EEE;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: #CFE3F4 0 0 0 3px;
+    left: -20px;
+    top: 5px;
+}
+
+@keyframes tt-spread {
+    100% {
+        box-shadow: rgba(207, 227, 244, 1) 0 0 0 5px;
+    }
+}
+
+.main-work .main-experience .main-experience-content:hover div {
+    animation: tt-spread 0.8s ease infinite;
+}
+
+/* 工作经验h1时间&工作地点 */
+.main-work .main-experience .main-experience-content h1 {
+    font-size: 14px;
+    color: #333333;
+}
+
+/*工作经验内容*/
+.main-work .main-experience .main-experience-content p {
+    font-size: 13px;
+    color: #999999;
+}
+/*li外壳*/
+.main-skill-out li {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    height: 90px;
+}
+/*最后一个li底部要有距离*/
+.main-skill-out li:last-child {
+    margin: 20px 0 20px 0;
+}
+
+.main-skill-out li h1 {
+    position: absolute;
+    left: 10%;
+    top: 0;
+    font-size: 14px;
+    color: black;
+}
+/*“了解”*/
+.main-skill-out li span {
+    border: 1px solid #999999;
+    border-radius: 12px;
+    color: #999999;
+    position: absolute;
+    font-size: 10px;
+    right: 10%;
+    top: 0;
+    padding: 0 9px;
+    cursor: pointer;
+}
+
+.main-skill-out li span:hover {
+    font-weight: bold;
+}
+/*技能名称*/
+.main-skill-out li h2 {
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    font-size: 13px;
+    color: #999999;
+}
+/*进度条的背景*/
+.main-skill-out li .main-skill-bg {
+    position: absolute;
+    width: 80%;
+    height: 8px;
+    background-color: #CCCCCC;
+    border-radius: 10px;
+    left: 10%;
+    bottom: 20%;
+}
+
+/*进度条的外色*/
+.main-skill-out li .main-skill-outside {
+    position: absolute;
+    height: 8px;
+    background: linear-gradient(to right, #117AD4, #10B1ED) no-repeat bottom /100% 8px;
+    border-radius: 10px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+@keyframes change-line1 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 30%;
+    }
+}
+
+.main-skill-out li:nth-child(1):hover .main-skill-outside {
+    animation: change-line1 2s ease 1;
+    animation-delay: 0.3s;
+}
+
+.main-skill-out li:nth-child(1) .main-skill-outside {
+    width: 30%;
+}
+
+/***************************************************************/
+@keyframes change-line2 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%;
+    }
+}
+
+.main-skill-out li:nth-child(2):hover .main-skill-outside {
+    animation: change-line2 2s ease 1;
+    animation-delay: 0.3s;
+}
+
+.main-skill-out li:nth-child(2) .main-skill-outside {
+    width: 80%;
+}
+
+/****************************************************************/
+@keyframes change-line3 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 40%;
+    }
+}
+
+.main-skill-out li:nth-child(3):hover .main-skill-outside {
+    animation: change-line3 2s ease 1;
+    animation-delay: 0.3s;
+}
+
+.main-skill-out li:nth-child(3) .main-skill-outside {
+    width: 40%;
+}
+
+@media screen and (min-width: 768px) {
+    .bd-out {
+        display: flex;
+        justify-content: space-around;
+        background: #188EEE url("http://coding.imweb.io/img/project/resume/bg.png") 100% 100%;
+    }
+    aside {
+        background: none;
+    }
+}
+
