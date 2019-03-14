@@ -1,2 +1,2 @@
 # resume
-这是一个基于flex-box布局的个人简历练手项目
+这是一个响应式的HTML+CSS3的web版个人简历
